@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.row {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+.mx-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+form {
+    width: 80vw;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .input-row {
+        max-width: 20rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: .875rem;
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: .25rem;
+            margin-left: .25rem;
+            font-weight: bold;
+        }
+
+        input {
+            display: block;
+            padding: .4rem;
+            width: 100%;
+        }
+    }
+}
+
+.btn {
+    padding: .5rem .875rem;
+    border-style: none;
+    border-radius: .5rem;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        font-size .25s ease-in-out;
+
+    &:hover {
+        font-size: 1.1rem;
+    }
+}
+
+.btn-green {
+    background-color: #30df00;
+
+    color: #fff;
+}
+
+.end-row {
+    margin-bottom: 5rem;
+}

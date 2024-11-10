@@ -1,8 +1,7 @@
-import { handleLogout } from "./AuthManager";
-import { Button } from "./CommonDOM";
-import { clickSignInButton } from "./EventDispatcher";
-import { SignInForm } from "./SignInViewDOM";
-import { getMemberNickname } from "./TokenUtils";
+import { handleLogout } from "../utils/AuthManager";
+import { Button } from "../utils/CommonDOM";
+import { SignInForm } from "./signin/SignInViewDOM";
+import { getMemberNickname } from "../utils/TokenUtils";
 import ReactDOM from 'react-dom/client';
 
 export function WelcomePhrase({ isAuthenticated }) {
@@ -11,7 +10,7 @@ export function WelcomePhrase({ isAuthenticated }) {
     const username = isAuthenticated ? getMemberNickname(token) : "guest";
 
     return (
-        <h2>
+        <h2 className="text-center">
             Hello {username}, <br />
             You're Welcomed very much!
         </h2>
@@ -31,7 +30,7 @@ export function LogoutButton({ authenticated, setAuthenticated }) {
     )
 }
 
-export function SignInButton({ authenticated, setAuthenticated }) {
+export function LoadSignInComponentButton({ authenticated, setAuthenticated }) {
 
     if (authenticated) {
         return null;
@@ -41,10 +40,14 @@ export function SignInButton({ authenticated, setAuthenticated }) {
         const parent = e.target.parentElement;
 
         const root = ReactDOM.createRoot(parent);
-        root.render(<SignInForm />);
+        root.render(<SignInForm whenAuthenticated={setAuthenticated} />);
     }
 
     return (
-        <Button id="sign-in-button" name="SignIn" clickHandler={handleClick} />
+        <Button 
+        id="load-sign-in-component-button" 
+        name="SignIn" 
+        classListAdd="btn-green"
+        clickHandler={handleClick} />
     )
 }
